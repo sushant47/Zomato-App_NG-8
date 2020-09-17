@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from './http-service.service';
 import { HttpHeaders } from '@angular/common/http';
-import { LocationService } from './location.service';
 import { Observable } from 'rxjs';
-import { IRestaurantObject } from '../restaurants-list/restaurant-list.interface';
 const USER_KEY = ['user-key', '2992de5d38229d6ddc7514fda07d8430'];
 @Injectable({
     providedIn: 'root'

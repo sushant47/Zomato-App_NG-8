@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { StorageService } from '../services/storage-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { RestaurantService } from '../services/restaurant-service.service';
 import { IRestaurantObject } from '../restaurants-list/restaurant-list.interface';

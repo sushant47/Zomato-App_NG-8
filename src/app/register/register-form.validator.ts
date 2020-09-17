@@ -2,7 +2,7 @@ import { AbstractControl } from '@angular/forms';
 
 export class RegisterFormValidator {
     public static passwordValidator(control: AbstractControl) {
-        const passwordValidationPattern = '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]).{8,20}$';
+        const passwordValidationPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])/;
         if (control.value) {
             if (control.value < 8) {
                 return { minPasswordLength: true };
@@ -10,7 +10,7 @@ export class RegisterFormValidator {
             if (control.value > 20) {
                 return { maxPasswordLength: true };
             }
-            if (!(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])/.test(control.value))) {
+            if (!(passwordValidationPattern.test(control.value))) {
                 return { passwordCriteria: true };
             }
         } else {
