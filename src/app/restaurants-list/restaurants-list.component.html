@@ -1,0 +1,24 @@
+<div class="card mb-4 shadow-sm d-flex justify-content-between align-items-center">
+  <div *ngFor="let restaurant of restaurantsList" class="card-body">
+    <img [src]="restaurant?.restaurant?.thumb" />
+    <label class="d-flex justify-content-between align-items-center">{{restaurant.restaurant.name}}</label>
+    <div class="row">
+      <div class="col-lg-10 float-left">
+        <span>Rating
+        </span>
+      </div>
+      <div class="col-lg-10 float-left">
+        <span>
+          {{restaurant?.restaurant?.user_rating?.aggregate_rating}}
+          {{restaurant?.restaurant?.user_rating?.rating_text}}</span>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="btn-group">
+        <button type="button" class="btn btn-sm btn-outline-secondary"
+          (click)="getRestaurantDetails(restaurant.restaurant.id)">View
+          Menu</button>
+      </div>
+    </div>
+  </div>
+</div>

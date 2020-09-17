@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "test-coverage": "ng test --code-coverage=true",
+    "sonar": "sonar-scanner"
   },
   "private": true,
   "dependencies": {
@@ -19,7 +21,11 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "angular-font-awesome": "^3.1.2",
+    "bootstrap": "^4.5.2",
+    "ngx-bootstrap": "^5.6.1",
     "rxjs": "~6.4.0",
+    "sonar-scanner": "^3.1.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

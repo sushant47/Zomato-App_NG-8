@@ -1,0 +1,167 @@
+<main class="main secondary">
+  <!--search form -->
+  <section class="container pt-3">
+    <div class="container">
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="row">
+          <div class="form-group col-sm-4">
+            <label class="col-form-label" for="">First Name</label>
+            <small class="text-danger" aria-required="false">*</small>
+            <div class="form-group">
+              <input type="text" formControlName="firstName">
+            </div>
+            <div
+              *ngIf="registerForm?.dirty && registerForm['controls'].firstName?.touched && registerForm['controls'].firstName?.errors">
+              <span class="text-danger" class="text text-danger"
+                *ngIf="registerForm['controls'].firstName?.errors?.required">
+                First Name is mandatory.
+              </span>
+              <span class="text-danger" *ngIf="registerForm['controls'].firstName?.errors?.pattern">
+                First Name should contain only alphabets.
+              </span>
+            </div>
+          </div>
+          <div class="form-group col-sm-4">
+            <label class="col-form-label" for="">Last Name</label>
+            <small class="text-danger" aria-required="false">*</small>
+            <div class="form-group">
+              <input type="text" formControlName="lastName">
+            </div>
+            <div
+              *ngIf="registerForm?.dirty && registerForm['controls'].lastName?.touched && registerForm['controls'].lastName?.errors">
+              <span class="text-danger" class="text text-danger"
+                *ngIf="registerForm['controls'].lastName?.errors?.required">
+                Last Name is mandatory.
+              </span>
+              <span class="text-danger" *ngIf="registerForm['controls'].lastName?.errors?.pattern">
+                Last Name should contain only alphabets.
+              </span>
+            </div>
+          </div>
+          <div class="form-group col-sm-4">
+            <label class="col-form-label" for="">Email ID</label>
+            <small class="text-danger" aria-required="false">*</small>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" placeholder="example@mail.com" formControlName="emailID" />
+            </div>
+            <div
+              *ngIf="registerForm?.dirty && registerForm['controls'].emailID?.touched && registerForm['controls'].emailID?.errors">
+              <span class="text-danger" class="text text-danger"
+                *ngIf="registerForm['controls'].emailID?.errors?.required">
+                Email is mandatory.
+              </span>
+              <span class="text-danger" class="text text-danger"
+                *ngIf="registerForm['controls'].emailID?.errors?.pattern">
+                Enter Correct Email ID
+              </span>
+              <span class="text-danger" *ngIf="registerForm['controls'].emailID?.errors?.email">
+                Email not valid.
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-4">
+            <label class="col-form-label" for="">Password</label>
+            <small class="text-danger" aria-required="false">*</small>
+            <div class="input-group">
+              <input [type]="fieldTextType ? 'text' : 'password'" autocomplete="new-password" class="form-control"
+                formControlName="password" />
+              <div class="input-group-append" (click)="toggleFieldTextType()">
+                <span class="input-group-text">
+                  <i class="fa" [ngClass]="{'far fa-eye-slash': !fieldTextType, 'far fa-eye': fieldTextType}"></i>
+                </span>
+              </div>
+            </div>
+            <div
+              *ngIf="registerForm?.dirty && registerForm['controls'].password?.touched && registerForm['controls'].password?.errors">
+              <span class="text-danger" *ngIf="registerForm['controls'].password?.errors?.required">
+                Password is mandatory.
+              </span>
+              <span class="text-danger" *ngIf="registerForm['controls'].password?.errors?.minPasswordLength">
+                Password should be minimum 8 characters long.
+              </span>
+              <span class="text-danger" *ngIf="registerForm['controls'].password?.errors?.maxPasswordLength">
+                Password should be maximum 20 characters long.
+              </span>
+              <span class="text-danger" *ngIf="registerForm['controls'].password?.errors?.passwordCriteria">
+                Password must contain at least one number, one lower case, one uppercase and one special character.
+              </span>
+            </div>
+          </div>
+          <div class="form-group col-sm-4">
+            <label class="col-form-label" for="">Phone Number</label>
+            <small class="text-danger" aria-required="false">*</small>
+            <div class="form-group">
+              <input type="text" formControlName="phoneNumber">
+            </div>
+            <div
+              *ngIf="registerForm?.dirty && registerForm['controls'].phoneNumber?.touched && registerForm['controls'].phoneNumber?.errors">
+              <span class="text-danger"
+                *ngIf="registerForm['controls'].phoneNumber?.touched && registerForm['controls'].phoneNumber?.errors?.required">
+                Phone Number is mandatory.
+              </span>
+              <span class="text-danger" *ngIf="registerForm['controls'].phoneNumber?.errors?.pattern">
+                Phone Number should contain only numbers.
+              </span>
+              <span class="text-danger" *ngIf="registerForm['controls'].phoneNumber?.errors?.minlength">
+                Phone Number should be maximum 10 digits.
+              </span>
+              <span class="text-danger" *ngIf="registerForm['controls'].phoneNumber?.errors?.maxlength">
+                Phone Number should be maximum 10 digits.
+              </span>
+            </div>
+          </div>
+          <div class="form-group col-sm-4">
+            <label class="col-form-label" for="">Address</label>
+            <small class="text-danger" aria-required="false">*</small>
+            <div class="form-group">
+              <input type="text" formControlName="address">
+            </div>
+            <div
+              *ngIf="registerForm?.dirty && registerForm['controls'].address?.touched && registerForm['controls'].address?.errors">
+              <span class="text-danger" *ngIf="registerForm['controls'].address?.errors?.required">
+                Address is mandatory.
+              </span>
+              <span class="text-danger" *ngIf="registerForm['controls'].address?.errors?.minlength">
+                Address should be minimum 20 characters.
+              </span>
+              <span class="text-danger" *ngIf="registerForm['controls'].address?.errors?.maxlength">
+                Address should be maximum 60 characters.
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-4">
+            <label class="col-form-label" for="">Address Line 2 (Optional)</label>
+            <div class="form-group">
+              <input type="text" formControlName="addressLine2">
+            </div>
+          </div>
+          <div class="form-group col-sm-4">
+            <label for="" class="col-form-label">Gender</label>
+            <small class="text-danger" aria-required="false">*</small>
+            <select class="form-control custom-select" name="SiteID" id="SiteID" formControlName="gender">
+              <option [value]="0">(Select Gender)</option>
+              <option *ngFor="let gender of gendersList" [ngValue]="gender">{{gender}}</option>
+            </select>
+            <div *ngIf="registerForm['controls'].gender?.touched && registerForm['controls'].gender?.value === '0'">
+              <span class="text-danger">
+                Gender is mandatory.
+              </span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary float-right" [disabled]="registerForm?.invalid">Register</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

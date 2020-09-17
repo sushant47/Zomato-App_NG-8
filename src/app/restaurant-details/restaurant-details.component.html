@@ -1,0 +1,17 @@
+<div class="mb-4 d-flex justify-content-between align-items-center">
+  <div>
+    <img src={{restaurantDetails?.thumb}} alt={{restaurantDetails?.thumb}} />
+    <label class="d-flex justify-content-between align-items-center">{{restaurantDetails?.name}}</label>
+    <div class="row">
+      <div class="col-lg-10 float-left">
+        <span>Rating
+        </span>
+      </div>
+      <div class="col-lg-10 float-left">
+        <span>
+          {{restaurantDetails?.user_rating?.aggregate_rating}}
+          {{restaurantDetails?.user_rating?.rating_text}}</span>
+      </div>
+    </div>
+  </div>
+</div>
