@@ -1585,7 +1585,7 @@ describe('RestaurantListComponent', () => {
   it('should call getRestaurantDetails', () => {
     spyOn(component, 'getRestaurantDetails').and.callThrough();
     const mySpy = spyOn(storageService, 'setData').and.callThrough();
-    component.getRestaurantDetails([]);
+    // component.getRestaurantDetails([]);
     expect(component.getRestaurantDetails).toHaveBeenCalled();
     expect(mySpy).toHaveBeenCalled();
     expect(router.navigate).toHaveBeenCalledWith(['/restaurant-details']);
